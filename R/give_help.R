@@ -3,8 +3,8 @@
 #' @returns a
 #' @export a
 #'
-#' @examples  Bzhan()
-Bzhan=function(){
+#' @examples  give_help()
+give_help=function(){
   logic=any(grepl("B站", ls()))
   if(!logic){
     return

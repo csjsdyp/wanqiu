@@ -13,10 +13,10 @@
 
 ## 安装方式 🔧
 
-r
-
 ```
 # 从GitHub安装最新版本
+# 请确保有devtools
+# 请确保能连上github
 if (!require("wanqiu", quietly = TRUE)) {
   devtools::install_github("csjsdyp/wanqiu")
 }
@@ -28,20 +28,26 @@ library(wanqiu)
 
 ## 核心功能 🎯
 
-
-
-r
-
 ```
 library(wanqiu)
 
-# 获取我的最新视频
-Bzhan()
-# latest_videos <- get_xxx_videos(n = 10)
-# head(latest_videos)
+# 支持博主
+give_support()
 
+# 获取我的最新视频
+give_help()
+
+# 视频列表
 # 输出示例：
 #   视频ID      标题               发布日期    播放量  点赞数  时长
 # 1 BV1xx  "R语言入门指南"    2024-01-15    5000    350    15:30
 # 2 BV1xy  "ggplot2进阶教程"  2024-01-08    7200    420    22:15
 ```
+
+tips:如果想要一打开Rstudio就加载`wanqiu`，请将下列代码写到你的R的全局配置Rprofile.site文件里
+
+```
+library(utils)
+library(wanqiu)
+```
+
