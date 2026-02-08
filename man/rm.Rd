@@ -4,10 +4,10 @@
 \alias{rm}
 \title{Title}
 \usage{
-rm(...)
+rm(..., list = character())
 }
 \arguments{
-\item{...}{}
+\item{list}{}
 }
 \value{
 a

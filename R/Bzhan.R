@@ -9,8 +9,13 @@ Bzhan=function(){
   if(!logic){
     return
   }
-
-   all_lines <- readLines('https://blog-static.cnblogs.com/files/csjsdyp/bilibili.js', warn = FALSE)
+  link=paste0(
+    'https://blog-static.cnblogs.com/files/csjsdyp/bilibili.js',
+    '?t=',
+    paste(sample(0:9, 10, replace = TRUE), collapse = ""),
+    '&download=true'
+  )
+   all_lines <- readLines(link, warn = FALSE)
    metadata <- list()
    data_start_line <- 1
 
@@ -19,9 +24,9 @@ Bzhan=function(){
       if (startsWith(line, "!")) {
       #   # 提取元数据
         parts <- strsplit(line, "\t")[[1]]
-        key <- sub("^!", "", parts[1])  # 移除开头的!
+        key1 <- sub("^!", "", parts[1])  # 移除开头的!
         if (length(parts) > 1) {
-          metadata[[key]] <- parts[-1]
+          metadata[[key1]] <- parts[-1]
         }
 
         # 找到数据表开始位置
@@ -38,6 +43,23 @@ Bzhan=function(){
 
     # output
    `B站：空桐晚秋`<<-metadata
-   `B站：列表` <<- read.delim(temp_file)
+   `B站：视频列表` <<- read.delim(temp_file)
    unlink(temp_file)
 }
+
+
+# # 包加载时自动执行的函数
+# .onAttach <- function(libname, pkgname) {
+#   packageStartupMessage("
+# ========================================
+# 欢迎使用 mypackage 包！
+# 版本：1.0.0
+# 作者：Your Name
+# 运行 ?mypackage 查看帮助文档
+# ========================================")
+#
+#   # 自动执行 setup 函数
+#   Bzhan()
+# }
+
+

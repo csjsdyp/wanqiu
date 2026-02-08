@@ -4,10 +4,7 @@
 \alias{Bzhan}
 \title{Title}
 \usage{
-Bzhan(...)
-}
-\arguments{
-\item{...}{}
+Bzhan()
 }
 \value{
 a
